@@ -14,8 +14,10 @@ e.g. `SLACK_SECRET='asdfghjkl' SLACK_API_TOKEN='xoxp-123412341234' SLACK_URL='fA
 
 by default the "API" runs on localhost using port 4999. if you have nginx already running on the server you want to use to host the ""API"", adding this location block will have nginx reverse proxy requests made to the """API""" URL into the listening flask app:
 
-```            location /bart {
-                    proxy_pass http://127.0.0.1:4999;
-                    proxy_set_header Host $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            }```
+```            
+location /bart {
+    proxy_pass http://127.0.0.1:4999;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+```
